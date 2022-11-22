@@ -3,6 +3,8 @@ import entities.ArticleReviewAssignmentData;
 import entities.Order;
 import entities.ProofOfPayment;
 
+import java.util.ArrayList;
+
 public class Ereview {
     Order order = new Order();
     ProofOfPayment payment = new ProofOfPayment();
@@ -24,7 +26,7 @@ public class Ereview {
     public void setArticlePath(String path){
         article_data.setArticlePath(path);
     }
-    public String getArticlePath(){
+    public ArrayList getArticlePath(){
         return article_data.getArticlePath();
     }
     public void setArticleReviewer(String rev){
