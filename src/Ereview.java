@@ -17,16 +17,12 @@ public class Ereview {
     public int getRating(){
         return order.getRating();
     }
-    public void setPayment(int money){
-        payment.setBill(money);
-    }
-    public int getPayment(){
-        return payment.getBill();
-    }
+    public int setPayment(int money){return payment.setBill(money);}
+    public int getPayment(){return payment.getBill();}
     public void setArticlePath(String path){
         article_data.setArticlePath(path);
     }
-    public ArrayList getArticlePath(){
+    public ArrayList<String> getArticlePath(){
         return article_data.getArticlePath();
     }
     public void setArticleReviewer(String rev){

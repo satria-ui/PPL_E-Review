@@ -6,12 +6,13 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class Form implements ActionListener{
-    final JFrame frame = new JFrame();
+//    public static ArrayList<String> data = new ArrayList<String>();
+    public static JFrame frame = new JFrame();
+    final JButton add = new JButton("Add");
     final JButton submit = new JButton("Submit");
-    final JButton cancel = new JButton("Cancel");
     final JButton openFile = new JButton("Open File");
     final JTextField path = new JTextField();
-    final Ereview ereview = new Ereview();
+    public static Ereview ereview = new Ereview();
 
     public Form(){
         frame.setTitle("E-Review");
@@ -19,11 +20,6 @@ public class Form implements ActionListener{
         frame.setSize(500, 500);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
-
-//        JButton submit = new JButton("Submit");
-//        submit.setBounds(0,0,50,30);
-//        JButton cancel = new JButton("Cancel");
-//        cancel.setBounds(0,50,50,30);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -34,13 +30,10 @@ public class Form implements ActionListener{
         title.setBounds(0,150,100,50);
         title.setFont(new Font(null, Font.BOLD, 13));
 
-//        JTextField path = new JTextField("default alskbdlaknsd asndlkansdl");
-//        path.setEditable(false);
         path.setPreferredSize(new Dimension(250,30));
+        add.addActionListener(this);
         submit.addActionListener(this);
-        cancel.addActionListener(this);
         openFile.addActionListener(this);
-//        JButton cancel = new JButton("Cancel");
 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -55,11 +48,11 @@ public class Form implements ActionListener{
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.insets = new Insets(5,0,0,120);
-        panel.add(submit, gbc);
+        panel.add(add, gbc);
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.insets = new Insets(5,120,0,0);
-        panel.add(cancel, gbc);
+        panel.add(submit, gbc);
 
         frame.add(panel);
 
@@ -77,17 +70,15 @@ public class Form implements ActionListener{
                 path.setEditable(false);
             }
         }
-        else if (actionEvent.getSource() == submit) {
-//            System.out.println(path.getText());
+        else if (actionEvent.getSource() == add) {
             ereview.setArticlePath(path.getText());
 
             path.setEditable(true);
             path.setText("");
-            System.out.println(ereview.getArticlePath());
+//            System.out.println(ereview.getArticlePath());
         }
-        else if(actionEvent.getSource() == cancel){
-            frame.dispose();
-            Menu menu = new Menu();
+        else if(actionEvent.getSource() == submit){
+            ConfirmationMessage confirmationMessage = new ConfirmationMessage();
         }
     }
 }

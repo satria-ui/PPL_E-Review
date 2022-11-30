@@ -5,10 +5,13 @@ import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class OrderDetails implements ActionListener{
+
+public class OrderDetails implements ActionListener {
     final JFrame frame = new JFrame();
     final JButton done = new JButton("Done");
+
     public OrderDetails(){
         frame.setTitle("E-Review");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -16,20 +19,31 @@ public class OrderDetails implements ActionListener{
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
-        String[][] data ={
-                {"A0", "satria"},
-                {"A1", "satria"},
-                {"A2", "satria"},
-                {"A3", "satria"},
-                {"A4", "satria"},
-                {"A5", "swe"},
-                {"A6", "ssub"},
-                {"A7", "adam"},
-                {"A8", "damdim"},
-        };
+//        ArrayList<String> data = Form.ereview.getArticlePath();
+
+        ArrayList<String> data = FormDescription.data;
+
+        String[][] value = new String[100][100];
+
+        if (data.isEmpty()){
+            value = new String[0][0];
+        }
+        else{
+            for(int i=0; i<data.size(); i++){ //length array
+                for(int j=0; j<2; j++){
+                    if(j == 1){
+                        value[i][j] = data.get(i);
+                    }
+                    else {
+                        value[i][j] = "P"+ i;
+                    }
+                }
+            }
+        }
+
         String[] columnNames = {"No", "Article"};
 
-        JTable table = new JTable(data,columnNames);
+        JTable table = new JTable(value,columnNames);
         // center cell
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
@@ -39,8 +53,8 @@ public class OrderDetails implements ActionListener{
         TableColumn no = colmod.getColumn(1);
         no.setPreferredWidth(480);
 
-        JLabel title = new JLabel("Submission History");
-        title.setBorder(BorderFactory.createEmptyBorder(100,180,0,0));
+        JLabel title = new JLabel("Submission History", SwingConstants.CENTER);
+        title.setBorder(BorderFactory.createEmptyBorder(100,0,0,0));
         title.setFont(new Font(null, Font.BOLD, 13));
 
         done.setPreferredSize(new Dimension(80,30));
