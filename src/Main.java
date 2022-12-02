@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
+        new Menu();
 //        Ereview obj = new Ereview();
 //        obj.setRating(23);
 //        obj.setPayment(500);
@@ -14,6 +14,5 @@ public class Main {
 //        System.out.println(obj.getArticleReviewer());
 //        System.out.println(obj.getDescription());
 //        System.out.println(obj.getReviewer());
-
     }
 }

@@ -1,10 +1,7 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JFrame;
-import javax.swing.BorderFactory;
 
 public class Menu implements ActionListener{
     final JFrame frame = new JFrame();
@@ -33,11 +30,11 @@ public class Menu implements ActionListener{
     public void actionPerformed(ActionEvent actionEvent) {
         if(actionEvent.getSource() == button){
             frame.dispose();
-            Form form = new Form();
+            new Form();
         }
         else if (actionEvent.getSource() == button2) {
             frame.dispose();
-            OrderDetails history = new OrderDetails();
+            new OrderDetails();
         }
     }
 }

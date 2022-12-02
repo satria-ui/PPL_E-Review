@@ -3,10 +3,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.ArrayList;
 
 public class Form implements ActionListener{
-//    public static ArrayList<String> data = new ArrayList<String>();
     public static JFrame frame = new JFrame();
     final JButton add = new JButton("Add");
     final JButton submit = new JButton("Submit");
@@ -75,10 +73,9 @@ public class Form implements ActionListener{
 
             path.setEditable(true);
             path.setText("");
-//            System.out.println(ereview.getArticlePath());
         }
         else if(actionEvent.getSource() == submit){
-            ConfirmationMessage confirmationMessage = new ConfirmationMessage();
+            new ConfirmationMessage();
         }
     }
 }

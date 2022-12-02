@@ -19,8 +19,6 @@ public class OrderDetails implements ActionListener {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
-//        ArrayList<String> data = Form.ereview.getArticlePath();
-
         ArrayList<String> data = FormDescription.data;
 
         String[][] value = new String[100][100];
@@ -49,8 +47,8 @@ public class OrderDetails implements ActionListener {
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
         table.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
         // resize col
-        TableColumnModel colmod = table.getColumnModel();
-        TableColumn no = colmod.getColumn(1);
+        TableColumnModel commode = table.getColumnModel();
+        TableColumn no = commode.getColumn(1);
         no.setPreferredWidth(480);
 
         JLabel title = new JLabel("Submission History", SwingConstants.CENTER);
@@ -76,7 +74,7 @@ public class OrderDetails implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if(actionEvent.getSource() == done){
             frame.dispose();
-            Menu menu = new Menu();
+            new Menu();
         }
     }
 }
