@@ -25,22 +25,16 @@ public class Ereview {
     public ArrayList<String> getArticlePath(){
         return article_data.getArticlePath();
     }
-    public void setArticleReviewer(String rev){
-        article_data.setReviewer(rev);
-    }
-    public String getArticleReviewer(){
-        return article_data.getReviewer();
-    }
     public void setDescription(String desc){
         article_review.setDescription(desc);
     }
-    public String getDescription(){
+    public ArrayList<String> getDescription(){
         return article_review.getDescription();
     }
     public void setReviewer(String rev){
         article_review.setReviewer(rev);
     }
-    public String getReviewer(){
+    public ArrayList<String> getReviewer(){
         return article_review.getReviewer();
     }
 }

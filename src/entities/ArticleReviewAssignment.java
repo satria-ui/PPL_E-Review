@@ -1,19 +1,22 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class ArticleReviewAssignment {
-    private String description;
-    private String reviewer;
+    final ArrayList<String> description = new ArrayList<String>();
+//    private String description;
+    final ArrayList<String> reviewer = new ArrayList<String>();
 
     public void setReviewer(String rev){
-        reviewer = rev;
+        reviewer.add(rev);
     }
-    public String getReviewer(){
+    public ArrayList<String> getReviewer(){
         return reviewer;
     }
     public void setDescription(String desc){
-        description = desc;
+        description.add(desc);
     }
-    public String getDescription(){
+    public ArrayList<String> getDescription(){
         return description;
     }
 }

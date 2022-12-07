@@ -1,3 +1,5 @@
+import entities.Order;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -19,27 +21,33 @@ public class OrderDetails implements ActionListener {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
-        ArrayList<String> data = FormDescription.data;
+        ArrayList<String> name = ArticleReview.e.getReviewer();
+        ArrayList<String> deskripsi = ArticleReview.e.getDescription();
+        ArrayList<String> article = ArticleReview.e.getArticlePath();
 
         String[][] value = new String[100][100];
 
-        if (data.isEmpty()){
+        if (article.isEmpty()){
             value = new String[0][0];
         }
         else{
-            for(int i=0; i<data.size(); i++){ //length array
-                for(int j=0; j<2; j++){
-                    if(j == 1){
-                        value[i][j] = data.get(i);
+            for(int i=0; i<article.size(); i++){ //length array
+                for(int j=0; j<3; j++){
+                    if(j == 0){
+                        value[i][j] = name.get(i);
+                    }
+                    else if(j == 1){
+                        value[i][j] = article.get(i);
                     }
                     else {
-                        value[i][j] = "P"+ i;
+                        value[i][j] = deskripsi.get(i);
+
                     }
                 }
             }
         }
 
-        String[] columnNames = {"No", "Article"};
+        String[] columnNames = {"Reviewer", "Article", "Description"};
 
         JTable table = new JTable(value,columnNames);
         // center cell
@@ -48,8 +56,11 @@ public class OrderDetails implements ActionListener {
         table.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
         // resize col
         TableColumnModel commode = table.getColumnModel();
-        TableColumn no = commode.getColumn(1);
-        no.setPreferredWidth(480);
+        TableColumn path = commode.getColumn(1);
+        TableColumn desc = commode.getColumn(2);
+        table.setRowHeight(30);
+        path.setPreferredWidth(250);
+        desc.setPreferredWidth(250);
 
         JLabel title = new JLabel("Submission History", SwingConstants.CENTER);
         title.setBorder(BorderFactory.createEmptyBorder(100,0,0,0));

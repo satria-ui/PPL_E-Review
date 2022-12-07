@@ -9,6 +9,7 @@ public class Form implements ActionListener{
     final JButton add = new JButton("Add");
     final JButton submit = new JButton("Submit");
     final JButton openFile = new JButton("Open File");
+    final JButton back = new JButton("Back");
     final JTextField path = new JTextField();
     public static Ereview ereview = new Ereview();
 
@@ -22,7 +23,7 @@ public class Form implements ActionListener{
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5,0,5,0);
+        gbc.insets = new Insets(10,0,0,0);
 
         JLabel title = new JLabel("Enter Article File Path");
         title.setBounds(0,150,100,50);
@@ -32,6 +33,7 @@ public class Form implements ActionListener{
         add.addActionListener(this);
         submit.addActionListener(this);
         openFile.addActionListener(this);
+        back.addActionListener(this);
 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -51,6 +53,12 @@ public class Form implements ActionListener{
         gbc.gridy = 3;
         gbc.insets = new Insets(5,120,0,0);
         panel.add(submit, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.insets = new Insets(250,0,0,400);
+        panel.add(back, gbc);
+
+
 
         frame.add(panel);
 
@@ -76,6 +84,10 @@ public class Form implements ActionListener{
         }
         else if(actionEvent.getSource() == submit){
             new ConfirmationMessage();
+        }
+        else if(actionEvent.getSource() == back){
+            frame.dispose();
+            new Menu();
         }
     }
 }

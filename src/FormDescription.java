@@ -12,7 +12,7 @@ public class FormDescription implements ActionListener {
     final JFrame frame = new JFrame();
     final JButton pay = new JButton("Pay");
     final Random r = new Random();
-    public static ArrayList<String> data = new ArrayList<String>();
+    public static ArrayList<String> data = new ArrayList<>();
     public FormDescription(){
         frame.setTitle("E-Review");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,7 +86,7 @@ public class FormDescription implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if(actionEvent.getSource() == pay){
             frame.dispose();
-            Menu menu = new Menu();
+            new Menu();
         }
     }
 }
